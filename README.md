@@ -50,7 +50,7 @@ Migrations are additive and must be run in filename order. The migrations contai
 
 ## Local setup
 
-1. Install Node.js 22.13 or later.
+1. Install Node.js 22.x.
 2. Run `npm install`.
 3. Create `.env.local` with all five variables.
 4. Run `npm run dev`.
@@ -125,7 +125,7 @@ Project pages use `/work/[niche-slug]/[project-slug]`, preventing a project from
 
 ## Deployment to Vercel
 
-Import the Git repository and add all five variables to Production and Preview environments. Mark `SUPABASE_SERVICE_ROLE_KEY` and `PORTFOLIO_EDITOR_SECRET` as sensitive. Build with `npm run build`. Normal content changes then use only the private editor; code/design or secret-route rotation requires a redeploy.
+Import the Git repository, select the **Other** framework preset, and use `npm run build:vercel` as the build command. Leave both the Output Directory override and Install Command override disabled: Nitro emits Vercel's Build Output API directly at `.vercel/output`, and Vercel detects the npm lockfile. Use Node.js 22.x and add all five variables to Production and Preview environments. Mark `SUPABASE_SERVICE_ROLE_KEY` and `PORTFOLIO_EDITOR_SECRET` as sensitive. Normal content changes then use only the private editor; code/design or secret-route rotation requires a redeploy.
 
 ## Backups and recovery
 
